@@ -40,7 +40,8 @@ jobs:
   test:
     strategy:
       fail-fast: false
-      ruby: [2.4, 2.5, 2.6, 2.7, 3.0]
+      matrix:
+        ruby: [2.4, 2.5, 2.6, 2.7, 3.0]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
