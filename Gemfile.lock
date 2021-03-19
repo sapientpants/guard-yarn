@@ -29,6 +29,9 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
+    guard-rubocop (1.4.0)
+      guard (~> 2.0)
+      rubocop (< 2.0)
     listen (3.4.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -89,6 +92,7 @@ DEPENDENCIES
   bundler (~> 2.2.3)
   bundler-audit (~> 0.8.0)
   guard-rspec (~> 4.7.3)
+  guard-rubocop (~> 1.4.0)
   guard-yarn!
   rspec (~> 3.10)
   rubocop (~> 1.11)

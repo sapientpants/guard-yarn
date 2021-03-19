@@ -6,7 +6,8 @@ module Guard
       DEFAULTS = {
         all_on_start: false,
         audit: true,
-        install: true
+        install: true,
+        package_path: 'package.json'
       }.freeze
 
       class << self

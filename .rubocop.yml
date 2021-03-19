@@ -16,5 +16,9 @@ AllCops:
   TargetRubyVersion: 2.4
   UseCache: false
 
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*.rb
+
 Style/Documentation:
   Enabled: false

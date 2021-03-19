@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'English'
+
 require 'guard/compat/plugin'
 require 'guard/yarn/options'
 
@@ -13,7 +15,7 @@ module Guard
     end
 
     def start
-      run_yarn if options[:all_on_start]
+      run_all if options[:all_on_start]
     end
 
     def reload
@@ -24,12 +26,12 @@ module Guard
       run_yarn
     end
 
-    def run_on_additions(_paths = [])
-      run_yarn
+    def run_on_additions(paths = [])
+      run_yarn if paths.include?(options[:package_path])
     end
 
-    def run_on_modifications(_paths = [])
-      run_yarn
+    def run_on_modifications(paths = [])
+      run_yarn if paths.include?(options[:package_path])
     end
 
     private
