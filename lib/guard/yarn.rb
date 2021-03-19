@@ -27,11 +27,11 @@ module Guard
     end
 
     def run_on_additions(paths = [])
-      run_yarn if paths.include?(options[:package_path])
+      run_yarn unless paths.empty?
     end
 
     def run_on_modifications(paths = [])
-      run_yarn if paths.include?(options[:package_path])
+      run_yarn unless paths.empty?
     end
 
     private

@@ -51,15 +51,10 @@ RSpec.describe Guard::Yarn do
   end
 
   describe '#run_on_additions' do
-    let(:paths) { [package_json] }
+    let(:paths) { %w[path1 path2] }
     it 'calls run_yarn' do
       expect(plugin).to receive(:run_yarn)
       plugin.run_on_additions(paths)
-    end
-
-    it 'does nothing if package.json not in received paths empty' do
-      expect(plugin).to_not receive(:run_yarn)
-      plugin.run_on_additions(%w[path1 path2])
     end
 
     it 'does nothing if paths empty' do
@@ -69,15 +64,10 @@ RSpec.describe Guard::Yarn do
   end
 
   describe '#run_on_modifications' do
-    let(:paths) { [package_json] }
+    let(:paths) { %w[path1 path2] }
     it 'calls run_yarn' do
       expect(plugin).to receive(:run_yarn)
       plugin.run_on_modifications(paths)
-    end
-
-    it 'does nothing if package.json not in received paths empty' do
-      expect(plugin).to_not receive(:run_yarn)
-      plugin.run_on_modifications(%w[path1 path2])
     end
 
     it 'does nothing if paths empty' do
