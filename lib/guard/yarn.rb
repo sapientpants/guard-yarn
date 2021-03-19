@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'guard/compat/plugin'
-require 'guard/rspec/options'
+require 'guard/yarn/options'
 
 module Guard
   class Yarn < Plugin
@@ -9,7 +9,7 @@ module Guard
 
     def initialize(options = {})
       super
-      @options = Guard::Yarn::Options.with_defaults(options)
+      @options = Options.with_defaults(options)
     end
 
     def start
