@@ -9,7 +9,7 @@ module Guard
 
     def initialize(options = {})
       super
-      @options = Options.with_defaults(options)
+      @options = Guard::Yarn::Options.with_defaults(options)
     end
 
     def start
