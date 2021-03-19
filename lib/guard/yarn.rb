@@ -39,6 +39,7 @@ module Guard
     end
 
     def yarn_install
+      Guard::Compat::UI.info 'Guard::Yarn is installing packages'
       system('yarn install')
       if $CHILD_STATUS.success?
         Guard::Compat::UI.info 'Yarn installed packages'
@@ -49,6 +50,7 @@ module Guard
     end
 
     def yarn_audit
+      Guard::Compat::UI.info 'Guard::Yarn is auditing packages'
       system('yarn audit')
       if $CHILD_STATUS.success?
         Guard::Compat::UI.info 'Yarn audited packages'
