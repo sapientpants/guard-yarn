@@ -41,22 +41,14 @@ module Guard
     def yarn_install
       Guard::Compat::UI.info 'Guard::Yarn is installing packages'
       system('yarn install')
-      if $CHILD_STATUS.success?
-        Guard::Compat::UI.info 'Yarn installed packages'
-      else
-        Guard::Compat::UI.error 'Yarn failed to install packages'
-      end
+      Guard::Compat::UI.error 'Yarn failed to install packages' unless $CHILD_STATUS.success?
       $CHILD_STATUS.success?
     end
 
     def yarn_audit
       Guard::Compat::UI.info 'Guard::Yarn is auditing packages'
       system('yarn audit')
-      if $CHILD_STATUS.success?
-        Guard::Compat::UI.info 'Yarn audited packages'
-      else
-        Guard::Compat::UI.error 'Yarn failed to audit packages'
-      end
+      Guard::Compat::UI.error 'Yarn failed to audit packages' unless $CHILD_STATUS.success?
       $CHILD_STATUS.success?
     end
   end
