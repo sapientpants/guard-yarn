@@ -8,11 +8,11 @@ module Guard
         audit: true,
         install: true
       }.freeze
-    end
 
-    class << self
-      def with_defaults(options = {})
-        DEFAULTS.merge(options)
+      class << self
+        def with_defaults(options = {})
+          DEFAULTS.merge(options)
+        end
       end
     end
   end
