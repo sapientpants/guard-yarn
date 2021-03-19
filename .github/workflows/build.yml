@@ -1,0 +1,54 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+      - name: Install dependencies
+        run: bundle install
+      - name: Lint code
+        run: bundle exec rubocop
+
+  scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+      - name: Install dependencies
+        run: bundle install
+      - name: Scan for Rails vulnerabilities
+        run: bundle exec brakeman -A --color -o /dev/stdout
+      - name: Scan for Javascript vulnerabilities
+        run: yarn audit
+
+  test:
+    strategy:
+      fail-fast: false
+      ruby: [2.4, 2.5, 2.6, 2.7, 3.0]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+      - name: Install dependencies
+        run: bundle install
+      - name: Run specs
+        run: bundle exec rspec
