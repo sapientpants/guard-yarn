@@ -26,8 +26,10 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'guard', '~> 2.0'
 
-  spec.add_development_dependency 'bundler',     '~> 2.2.3'
-  spec.add_development_dependency 'guard-rspec', '~> 4.7.3'
-  spec.add_development_dependency 'rake',        '~> 13.0'
-  spec.add_development_dependency 'rspec',       '~> 3.10'
+  spec.add_development_dependency 'bundler',       '~> 2.2.3'
+  spec.add_development_dependency 'bundler-audit', '~> 0.8.0'
+  spec.add_development_dependency 'guard-rspec',   '~> 4.7.3'
+  spec.add_development_dependency 'rspec',         '~> 3.10'
+  spec.add_development_dependency 'rubocop',       '~> 1.11'
+  spec.add_development_dependency 'rubocop-rspec', '~> 2.2.0'
 end
