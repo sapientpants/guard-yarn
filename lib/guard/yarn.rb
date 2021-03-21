@@ -37,7 +37,8 @@ module Guard
     private
 
     def run_yarn
-      yarn_audit if options[:audit] && (options[:install] && yarn_install)
+      yarn_install if options[:install]
+      yarn_audit if options[:audit]
     end
 
     def yarn_install
